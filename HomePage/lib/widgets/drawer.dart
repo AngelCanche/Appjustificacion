@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
+import 'package:justifications/pages/login_page.dart';
 
 Widget menu(BuildContext context) {
   return Drawer(
+    
     child: ListView(
       padding: EdgeInsets.zero,
       children: [
@@ -34,9 +36,39 @@ Widget menu(BuildContext context) {
             'Inicio',
             style: TextStyle(fontSize: 18, color: Colors.red.shade900),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.pushReplacementNamed(context, 'home');
+          },
         ),
+         ListTile(
+          leading: Icon(
+            Icons.account_circle,
+            size: 30,
+            color: Colors.red.shade900,
+          ),
+          title: Text(
+            'Iniciar sesión',
+            style: TextStyle(fontSize: 18, color: Colors.red.shade900),
+          ),
+          onTap: () {
+           // Navigator.pushReplacementNamed(context,'login' );
+           final route = MaterialPageRoute(
+            builder: (context){
+              return LoginPage();
+            }
+            );
+
+            Navigator.push(context, route);
+          },
+          
+          
+        ),
+        
       ],
+      
+      
     ),
+    
   );
+
 }
